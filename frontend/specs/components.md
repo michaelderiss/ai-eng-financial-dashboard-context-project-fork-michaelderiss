@@ -122,12 +122,13 @@ Columns:
 
 - `period: string`
 - `outcome_total: number`
-- `baseline_average: number`
+- `baseline_average: number` rendered with the column label `Rolling average of previous 3 periods`
 - `increase_ratio: number`
 
 Conditional rendering:
 
 - Format `outcome_total` and `baseline_average` as currency.
+- Use the backend `baseline_average` field as the source value for the `Rolling average of previous 3 periods` column label required by the product spec.
 - Format `increase_ratio` as a percentage by multiplying the ratio by 100 for display.
 - Preserve table headers when `rows` is empty and delegate the body to the empty-state component.
 
@@ -177,6 +178,7 @@ Props:
 
 - `value: DateRangeFilter`
 - `availableRange: Pick<FacetsResponse, 'min_date' | 'max_date'> | null`
+- `validationMessage: string | null`
 - `onChange: (nextValue: DateRangeFilter) => void`
 - `onApply: (nextValue: DateRangeFilter) => void`
 - `onClear: () => void`
@@ -184,6 +186,7 @@ Props:
 Conditional rendering:
 
 - Match the same partial-date behavior as Feature 1.
+- When `validationMessage` is present, render it inline near the date inputs and do not submit a new request.
 - Show the same inline validation when `start_date` is later than `end_date`.
 
 ### `BusinessLineTopCategoriesPanel`

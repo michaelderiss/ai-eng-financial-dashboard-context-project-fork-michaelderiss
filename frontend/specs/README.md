@@ -61,13 +61,13 @@ Valid parameters and constraints:
 Response contract notes:
 
 - `increase_ratio` is a ratio, not a percentage string. The UI must multiply by 100 for percentage display.
-- `baseline_average` is the backend-provided comparison baseline. The current payload does not expose metadata proving that the baseline is limited to the previous 3 periods, so the frontend must treat it as an opaque backend-calculated average.
+- `baseline_average` is the backend field that supplies the table's `Rolling average of previous 3 periods` column. The UI must preserve that user-facing column label while reading the numeric value from `baseline_average`.
 
 UI rules:
 
 - Place the anomaly table below the existing charts on the home dashboard.
 - Always render the threshold input and the table shell.
-- The table columns are `period`, `recorded outcome`, `baseline average`, and `percentage increase`.
+- The table columns are `period`, `recorded outcome`, `rolling average of previous 3 periods`, and `percentage increase`.
 - The table must respect the same `DateRangeFilter` used by Feature 1.
 - If the response is empty, render an explicit empty-state message and keep the section visible.
 
@@ -109,6 +109,7 @@ UI rules:
 - Each section shows a top-5 table with category name, total income, and percentage of that business line's displayed total.
 - Compute percentage of group total in the UI from the `total_amount` values returned for that business line.
 - Render a single comparison chart below both sections using the total displayed income for `B2B` versus `B2C`.
+- The comparison date-range controls must expose inline validation state so `start_date > end_date` can be shown without issuing a request.
 
 Edge cases:
 
