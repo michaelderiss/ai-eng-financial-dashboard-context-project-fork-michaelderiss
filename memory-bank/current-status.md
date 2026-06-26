@@ -6,6 +6,7 @@
 - Frontend renders KPI and chart dashboard views using backend metrics.
 - Backend tests cover major route and filtering behavior.
 - Frontend utility tests cover KPI and monthly data transformations.
+- Frontend specification artifacts now document the next dashboard feature set under `frontend/specs/`.
 
 ## Known gaps and risks
 - CORS defaults are very permissive and should be constrained for non-local environments.
