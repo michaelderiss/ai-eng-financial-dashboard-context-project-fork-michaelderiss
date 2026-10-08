@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "skills": {
+    "accessibility": {
+      "source": "addyosmani/web-quality-skills",
+      "sourceType": "github",
+      "skillPath": "skills/accessibility/SKILL.md",
+      "computedHash": "88c64dead9bb55925c7b983f5fd95cfecf30bd8c076fd384cdb17019d1becd87"
+    },
+    "vercel-react-best-practices": {
+      "source": "am-will/codex-skills",
+      "sourceType": "github",
+      "skillPath": "skills/vercel-react-best-practices/SKILL.md",
+      "computedHash": "0152317e3e11aaec2fd3675d7f0f88bff9b0388be78cf482a7e0657dc7d70239"
+    }
+  }
+}

@@ -65,14 +65,21 @@ export function ProfitPercentChart({ data, loading }: ProfitPercentChartProps) {
   const hasData = data.some((d) => d.profitPercent !== 0)
 
   return (
-    <Card className="border-border/60">
+    <Card
+      className="border-border/60"
+      role="region"
+      aria-label="Profit Margin chart showing monthly profit as a percentage of total income"
+    >
       <CardHeader className="pb-4">
         <CardTitle className="text-base font-semibold">Profit Margin %</CardTitle>
         <CardDescription>Monthly profit as a percentage of total income</CardDescription>
       </CardHeader>
       <CardContent>
         {!hasData ? (
-          <div className="flex h-[280px] items-center justify-center text-muted-foreground text-sm">
+          <div
+            className="flex h-[280px] items-center justify-center text-muted-foreground text-sm"
+            role="status"
+          >
             No data available to display
           </div>
         ) : (
