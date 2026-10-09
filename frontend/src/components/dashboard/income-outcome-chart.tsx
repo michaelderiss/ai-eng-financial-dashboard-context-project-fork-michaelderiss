@@ -64,14 +64,21 @@ export function IncomeOutcomeChart({ data, loading }: IncomeOutcomeChartProps) {
   const hasData = data.some((d) => d.income > 0 || d.outcome > 0)
 
   return (
-    <Card className="border-border/60">
+    <Card
+      className="border-border/60"
+      role="region"
+      aria-label="Income vs Outcome chart showing monthly revenue and expenditure evolution"
+    >
       <CardHeader className="pb-4">
         <CardTitle className="text-base font-semibold">Income vs. Outcome</CardTitle>
         <CardDescription>Monthly revenue and expenditure evolution</CardDescription>
       </CardHeader>
       <CardContent>
         {!hasData ? (
-          <div className="flex h-[280px] items-center justify-center text-muted-foreground text-sm">
+          <div
+            className="flex h-[280px] items-center justify-center text-muted-foreground text-sm"
+            role="status"
+          >
             No data available to display
           </div>
         ) : (
