@@ -20,4 +20,20 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  build: {
+    // Enable verbose minification for smaller bundles (using built-in esbuild)
+    minify: "esbuild",
+    // Split larger dependencies into separate chunks for better caching
+    rollupOptions: {
+      output: {
+        manualChunks(id: string) {
+          if (id.includes("react") || id.includes("react-dom")) return "vendor-react";
+          if (id.includes("recharts")) return "vendor-charts";
+          if (id.includes("lucide-react")) return "vendor-icons";
+        },
+      },
+    },
+    // Generate source maps for production debugging
+    sourcemap: true,
+  },
 });
